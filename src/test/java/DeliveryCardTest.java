@@ -17,11 +17,12 @@ public class DeliveryCardTest {
     }
     @BeforeAll
     public static void setUp() {
-        Configuration.headless = true;
+        //Configuration.headless = true;
         Configuration.browser = "chrome";
     }
     @Test
     void EnteringValidValues() {
+        Configuration.holdBrowserOpen = true;
         open("http://localhost:9999");
         $("[data-test-id='city'] input").setValue("Уфа");
         String currentDate = generateDate(3,"dd.MM.yyyy");
