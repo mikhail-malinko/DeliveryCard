@@ -1,5 +1,6 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
@@ -13,6 +14,11 @@ import static com.codeborne.selenide.Selenide.open;
 public class DeliveryCardTest {
     private String generateDate(int addDays, String pattern) {
         return LocalDate.now().plusDays(addDays).format(DateTimeFormatter.ofPattern(pattern));
+    }
+    @BeforeAll
+    public static void setUp() {
+        Configuration.headless = true;
+        Configuration.browser = "chrome";
     }
     @Test
     void EnteringValidValues() {
