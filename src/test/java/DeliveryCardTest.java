@@ -17,7 +17,7 @@ public class DeliveryCardTest {
     }
     @BeforeAll
     public static void setUp() {
-        //Configuration.headless = true;
+        Configuration.headless = true;
         Configuration.browser = "chrome";
     }
     @Test
