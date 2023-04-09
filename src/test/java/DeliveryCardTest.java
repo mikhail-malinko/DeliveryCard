@@ -16,7 +16,7 @@ public class DeliveryCardTest {
     }
     @Test
     void EnteringValidValues() {
-        Dselenide.headless=true;
+        Configuration.holdBrowserOpen = true;
         open("http://localhost:9999");
         $("[data-test-id='city'] input").setValue("Уфа");
         String currentDate = generateDate(3,"dd.MM.yyyy");
