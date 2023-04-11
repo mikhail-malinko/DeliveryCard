@@ -15,13 +15,14 @@ public class DeliveryCardTest {
     private String generateDate(int addDays, String pattern) {
         return LocalDate.now().plusDays(addDays).format(DateTimeFormatter.ofPattern(pattern));
     }
-    @BeforeAll
-    public static void setUp() {
-        Configuration.headless = true;
-        Configuration.browser = "chrome";
+//    @BeforeAll
+//    public static void setUp() {
+//        Configuration.headless = true;
+//        Configuration.browser = "chrome";
     }
     @Test
-    void EnteringValidValues() {
+    public void enteringValidValues() {
+
         open("http://localhost:9999");
         $("[data-test-id='city'] input").setValue("Уфа");
         String currentDate = generateDate(3,"dd.MM.yyyy");
