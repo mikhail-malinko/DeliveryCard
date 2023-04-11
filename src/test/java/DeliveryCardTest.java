@@ -15,22 +15,19 @@ public class DeliveryCardTest {
         return LocalDate.now().plusDays(addDays).format(DateTimeFormatter.ofPattern(pattern));
     }
     @Test
-    void EnteringValidValues() {
-        Configuration.headless = true;
-        //Configuration.holdBrowserOpen = true;
-
+    void enteringValidValues() {
         open("http://localhost:9999");
         $("[data-test-id='city'] input").setValue("Уфа");
-        String Date = generateDate(3,"dd.MM.yyyy");
+        String dateCurrent = generateDate(3,"dd.MM.yyyy");
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
-        $("[data-test-id=date] input").sendKeys(Date);
+        $("[data-test-id=date] input").sendKeys(dateCurrent);
         $("[data-test-id=name] input").setValue("Иванов Иван");
         $("[data-test-id=phone] input").setValue("+79998887766");
         $("label[data-test-id=agreement]").click();
         $("button.button").click();
         $(".notification__content")
                 .shouldBe(Condition.visible, Duration.ofSeconds(15))
-                .shouldHave(Condition.exactText("Встреча успешно забронирована на " + Date));
+                .shouldHave(Condition.exactText("Встреча успешно забронирована на " + dateCurrent));
 
     }
 }
