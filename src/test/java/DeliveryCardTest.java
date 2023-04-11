@@ -30,4 +30,4 @@ public class DeliveryCardTest {
                 .shouldHave(Condition.exactText("Встреча успешно забронирована на " + dateCurrent));
 
     }
-}
+}43tqwertv z
